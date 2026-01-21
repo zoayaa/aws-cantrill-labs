@@ -135,7 +135,7 @@ Target: Internet Gateway
 
 ##  Learnings & Insights  
 
-- A VPC is a logically isolated network inside AWS.
+- A VPC is a logically isolated network inside AWS and is region resillant service.
 - AWS allows VPC sizes from /28 (16 IPs) to /16 (65,536 IPs).
 - Public subnets require an Internet Gateway and a route to `0.0.0.0/0`.  
 - Private subnets do NOT have direct internet access.  
