@@ -14,6 +14,7 @@ Understand how AWS VPC works by:
 # Architecture Diagram 
 
 Subnet Design (CIDR Allocation):
+
 Each tier is isolated per AZ to ensure fault tolerance.
 ┌────────────────────────────────────────────────────────┐
 │  VPC: 10.16.0.0/16 (us-east-1)                         |
