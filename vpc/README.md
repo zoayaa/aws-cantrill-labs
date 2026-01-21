@@ -16,6 +16,7 @@ Understand how AWS VPC works by:
 Subnet Design (CIDR Allocation):
 
 Each tier is isolated per AZ to ensure fault tolerance.
+```
 ┌────────────────────────────────────────────────────────┐
 │  VPC: 10.16.0.0/16 (us-east-1)                         |
 │                                                        |
@@ -50,7 +51,7 @@ Each tier is isolated per AZ to ensure fault tolerance.
 |                        │                               | 
 │                     Internet                           │
 └─────────────────────────────────────────────────────────
-
+```
 
 # AWS VPC Sizing & Networking
 
@@ -129,25 +130,18 @@ In the AWS Console, I created:
 Destination: 0.0.0.0/0
 Target: Internet Gateway
 
-
 - Associate this route table with the **public subnet**
 
-
-##  Challenges Faced  
-
-- Initially confused between **Public vs Private subnet**  
-- Took time to understand how route tables control traffic  
-- Was unclear why private subnets cannot access the internet directly  
-- Needed practice to understand CIDR notation (`/16`, `/24`)  
 
 ##  Learnings & Insights  
 
 - A VPC is a logically isolated network inside AWS.
-- VPC Minimum /28 (16 IPs), Maximum /16 (65536 IPs). 
+- AWS allows VPC sizes from /28 (16 IPs) to /16 (65,536 IPs).
 - Public subnets require an Internet Gateway and a route to `0.0.0.0/0`.  
 - Private subnets do NOT have direct internet access.  
 - Route tables determine where network traffic goes.  
-- CIDR blocks define the size of the network.  
+- CIDR blocks define how many IP addresses are available in a network.
+- Subnets divide a VPC into smaller networks, usually mapped to Availability Zones.
 - NAT Gateway is used when private resources need outbound internet access.  
 
 ##  Real-World Use Case  
@@ -157,7 +151,8 @@ In real cloud environments:
 - Databases are placed in **private subnets**  
 - Security is controlled using Security Groups and NACLs  
 - Internet Gateway is used for public access  
-- NAT Gateway is used for secure outbound traffic from private subnets  
+- NAT Gateway is used for secure outbound traffic from private subnets
+- Separating Web, App, and DB improves security
 
 
 
